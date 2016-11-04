@@ -1,0 +1,25 @@
+\chapter{Anforderungen}
+Continuous Integration muss, wie jedes Entwicklungsverfahren, gelebt werden. Dazu sind einige Anforderungen an das System und Team zu stellen.
+
+\section{System}
+Es gibt ein gemeinsames Quellverzeichnis in das alle Mitarbeiter ihre Änderungen hinterlegen. Dieses wird regelmäßig gebaut und mit hinterlegten Tests selbständig überprüft. Jede neue Änderung muss auf einem Integrationssystem einen erfolgreichen Schritt des Kompilers mit sich ziehen.
+Jeder Kompiliervorgang sollte kurz gehalten werden um ein direktes Feedback über die Qualität der Änderung zu erhalten. Es ist immer ratsam die Tests in einem direkten Klon der späteren Produktionsumgebung durchzuführen. Dies verhindert spätere Integrationsprobleme. Die getestete Software sollte für alle zur Verfügung stehen um einen Austausch über den aktuellen Stand zu gewährleisten.
+
+Einen Schritt weiter sollte das Continuous Deployment angesetzt werden um es direkt ausliefern zu können. 
+
+\subsection{Umsetzung}
+Soll CI intern genutzt werden sind einige Schritte nötig um die gewünschten Ergebnisse zu erzielen.
+
+Es wird ein globales Quellverzeichnis angelegte, welches jeder Entwickler nutzen wird. Dazu dienen Git Dienst wie zum Beispiel Github oder Bitbucket. Lokale Änderungen werden getestet und nach Erfolg in das Verzeichnis übertragen. Der CI Server hört auf Änderungen in dem Quellverzeichnis und holt sich den aktuellen Stand. Dieser wird gebaut und mit Unit- und Integrationstests überprüft. 
+
+Nach Erfolg wird es dem Team mit einem Namen der Version zur Verfügung gestellt. Eine Benachrichtigung über den Zustand wird nachfolgend an das Team gesendet. 
+
+Ist jedoch ein Fehler während des Bauvorgangs aufgetreten wird das Entwicklerteam alarmiert diesen schnellst möglich zu beheben.
+
+Dieser Prozess wird durch das komplette Projekt zyklisch gezogen.
+
+\section{Team}
+Auf menschlicher Ebene müssen natürlich auch einige Regeln eingehalten werden. Essentiell ist der regelmäßige Änderungsbeitrag jedes Entwicklers in das Quellverzeichnis. Änderungen mit Fehlern im Code gehören nicht den gemeinsamen Pool der Software, sondern sollten vorher lokal syntaktisch korrigiert werden.
+Code muss lokal immer lauffähig sein bevor darüber nachgedacht wird die Änderung zu veröffentlichen. In vielen Unternehmen wird deshalb die Arbeitszeit nach hinten gezogen bis dies geschehen ist.
+
+Viele Teams entwickeln aus diesen Regeln ein tägliches Ritual. Dadurch korrigieren und kontrollieren sie sich selbst. Es ist nicht nötig weitere Regeln aus höherer Hierarchieebene geben zu müssen.
