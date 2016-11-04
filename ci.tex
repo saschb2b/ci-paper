@@ -97,11 +97,15 @@ s.becker@wertarbyte.com \\
 
 %\listoftables       % Tabellenverzeichnis
 
-% main text
 \newpage
 \pagenumbering{arabic}
 \include{einleitung}
 \include{anforderungen}
 \include{software}
+
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\renewcommand{\btxfnamespaceshort}{\,}
+\bibliographystyle{bababbrv_unsrt}
+\bibliography{bibliography}
 
 \end{document}
